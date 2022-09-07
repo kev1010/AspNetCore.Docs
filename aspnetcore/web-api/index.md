@@ -12,31 +12,12 @@ uid: web-api/index
 
 :::moniker range="= aspnetcore-6.0"
 
-ASP.NET Core supports creating web APIs using controllers or using minimal APIs. *Controllers* in a web API are classes that derive from <xref:Microsoft.AspNetCore.Mvc.ControllerBase>. This article shows how to use controllers for handling web API requests. For information on creating web APIs without controllers, see <xref:tutorials/min-web-api>.
+ASP.NET Core supports creating web APIs using controllers or [using minimal APIs](<xref:tutorials/min-web-api>). This article shows how to use controllers for handling web API requests. Web API *Controllers* are classes derived from <xref:Microsoft.AspNetCore.Mvc.ControllerBase>, but the ApiController attribute provides the functionality we concider unique to Web API.
 
-## ControllerBase class
-
-A controller-based web API consists of one or more controller classes that derive from <xref:Microsoft.AspNetCore.Mvc.ControllerBase>. The web API project template provides a starter controller:
+The web API project template provides a starter controller:
 
 [!code-csharp[](index/samples/6.x/Controllers/WeatherForecastController.cs?name=snippet_ControllerSignature&highlight=3)]
 
-Web API controllers should typically derive from <xref:Microsoft.AspNetCore.Mvc.ControllerBase> rather from <xref:Microsoft.AspNetCore.Mvc.Controller>. `Controller` derives from <xref:Microsoft.AspNetCore.Mvc.ControllerBase> and adds support for views, so it's for handling web pages, not web API requests. If the same controller must support views and web APIs, derive from `Controller`.
-
-The `ControllerBase` class provides many properties and methods that are useful for handling HTTP requests. For example, <xref:Microsoft.AspNetCore.Mvc.ControllerBase.CreatedAtAction%2A> returns a 201 status code:
-
-[!code-csharp[](index/samples/6.x/Controllers/PetsController.cs?name=snippet_400And201&highlight=10)]
-
-The following table contains examples of methods in `ControllerBase`.
-
-|Method   |Notes    |
-|---------|---------|
-|<xref:Microsoft.AspNetCore.Mvc.ControllerBase.BadRequest%2A>| Returns 400 status code.|
-|<xref:Microsoft.AspNetCore.Mvc.ControllerBase.NotFound%2A>|Returns 404 status code.|
-|<xref:Microsoft.AspNetCore.Mvc.ControllerBase.PhysicalFile%2A>|Returns a file.|
-|<xref:Microsoft.AspNetCore.Mvc.ControllerBase.TryUpdateModelAsync%2A>|Invokes [model binding](xref:mvc/models/model-binding).|
-|<xref:Microsoft.AspNetCore.Mvc.ControllerBase.TryValidateModel%2A>|Invokes [model validation](xref:mvc/models/validation).|
-
-For a list of all available methods and properties, see <xref:Microsoft.AspNetCore.Mvc.ControllerBase>.
 
 ## Attributes
 
