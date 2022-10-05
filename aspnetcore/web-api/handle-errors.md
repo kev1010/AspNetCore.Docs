@@ -434,7 +434,7 @@ The contents of the response can be modified from outside of the controller usin
 
     :::code language="csharp" source="handle-errors/samples/6.x/HandleErrorsSample/Snippets/HttpResponseExceptionFilter.cs" id="snippet_Class":::
 
-    The preceding filter specifies an `Order` of the maximum integer value minus 10. This `Order` allows other filters to run at the end of the pipeline.
+    The preceding [IOrderedFilter Interface](https://learn.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.mvc.filters.iorderedfilter?view=aspnetcore-7.0) specifies an `Order` of the maximum integer value minus 10. This `Order` allows other filters to run at the end of the pipeline.
 
 1. In `Program.cs`, add the action filter to the filters collection:
 
